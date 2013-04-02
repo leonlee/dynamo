@@ -118,6 +118,7 @@ Hooks are a mechanism to encapsulate actions that are shared in between many rou
 
 ```elixir
 prepare do
+  conn = conn.fetch([:params])
   unless conn.params[:user_info] do
     halt! conn.status(400)
   end
